@@ -393,6 +393,11 @@ public:
 	float				GetNextAttack() const { return m_flNextAttack; }
 	void				SetNextAttack( float flWait ) { m_flNextAttack = flWait; }
 
+	Vector				m_vecLean; //0x175C
+	Vector				m_vecShift; //0x1768
+	char				pad_1774[4]; //0x1774
+
+
 	bool				m_bForceServerRagdoll;
 
 	// Pickup prevention

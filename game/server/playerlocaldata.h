@@ -82,8 +82,17 @@ public:
 	fogparams_t			m_fog;
 	// audio environment
 	CNetworkVarEmbedded( audioparams_t, m_audio );
-
+	float m_fSprintSpeed; // 01CC
+	float m_fWalkSpeed; // 01D0
+	float m_fSlowWalkSpeed; // 01D4
+	float m_fLadderSpeed; // 01D8
+	float m_fCrouchedWalkSpeed; // 01DC
+	float m_fDuckSpeed; // 01E0
+	float m_fUnDuckSpeed; // 01E4
+	bool m_bDuckToggled;
+	
 	CNetworkVar( bool, m_bSlowMovement );
+	char gapfin[6];
 };
 
 EXTERN_SEND_TABLE(DT_Local);

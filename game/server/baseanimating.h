@@ -381,6 +381,7 @@ private:
 	bool				m_bSequenceFinished;// flag set when StudioAdvanceFrame moves across a frame boundry
 	bool				m_bSequenceLoops;	// true if the sequence loops
 	bool				m_bResetSequenceInfoOnLoad; // true if a ResetSequenceInfo was queued up during dynamic load
+	char				pad_1457[1];
 	float				m_flDissolveStartTime;
 
 	// was pev->frame
@@ -414,9 +415,17 @@ protected:
 	CNetworkVar( float, m_fadeMaxDist );	// Point at which fading is inactive
 	CNetworkVar( float, m_flFadeScale );	// Scale applied to min / max
 
+	Vector			m_OverrideViewTarget;
+	char			pad_1494[132]; //0x1494
+	int32_t			m_pBoneManipulator; //0x1518
+	int32_t			m_pFlexManipulator; //0x151C
+
+
 public:
 	COutputEvent m_OnIgnite;
 
+	char			pad_1524[20]; //0x1524
+	void* m_AnimOverlay; //0x1550
 private:
 	CStudioHdr			*m_pStudioHdr;
 	CThreadFastMutex	m_StudioHdrInitLock;

@@ -254,31 +254,35 @@ enum
 
 struct typedescription_t
 {
-	fieldtype_t			fieldType;
-	const char			*fieldName;
-	int					fieldOffset[ TD_OFFSET_COUNT ]; // 0 == normal, 1 == packed offset
-	unsigned short		fieldSize;
-	short				flags;
+	fieldtype_t            fieldType;
+	const char* fieldName;
+	int                    fieldOffset; // Local offset value
+	unsigned short        fieldSize;
+	short                flags;
 	// the name of the variable in the map/fgd data, or the name of the action
-	const char			*externalName;	
+	const char* externalName;
 	// pointer to the function set for save/restoring of custom data types
-	ISaveRestoreOps		*pSaveRestoreOps; 
+	ISaveRestoreOps* pSaveRestoreOps;
 	// for associating function with string names
-	inputfunc_t			inputFunc; 
+	inputfunc_t            inputFunc;
 	// For embedding additional datatables inside this one
-	datamap_t			*td;
+	datamap_t* td;
 
 	// Stores the actual member variable size in bytes
-	int					fieldSizeInBytes;
+	int                    fieldSizeInBytes;
 
 	// FTYPEDESC_OVERRIDE point to first baseclass instance if chains_validated has occurred
-	struct typedescription_t *override_field;
+	struct typedescription_t* override_field;
 
 	// Used to track exclusion of baseclass fields
-	int					override_count;
-  
+	int                    override_count;
+
 	// Tolerance for field errors for float fields
-	float				fieldTolerance;
+	float                fieldTolerance;
+
+	// For raw fields (including children of embedded stuff) this is the flattened offset
+	int                    flatOffset[TD_OFFSET_COUNT];
+	unsigned short        flatGroup;
 };
 
 

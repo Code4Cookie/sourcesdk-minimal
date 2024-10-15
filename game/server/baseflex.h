@@ -244,7 +244,7 @@ private:
 	// last time a foreground flex animation was played
 	float				m_flLastFlexAnimationTime;
 
-
+	char				pad_1744[24]; //0x1744
 public:
 	void DoBodyLean( void );
 

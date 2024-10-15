@@ -135,7 +135,7 @@ public:
 	};
 
 private:
-	CUtlVector< CAnimationLayer	> m_AnimOverlay;
+	//CUtlVector< CAnimationLayer	> m_AnimOverlay;
 	//int				m_nActiveLayers;
 	//int				m_nActiveBaseLayers;
 
@@ -207,7 +207,7 @@ EXTERN_SEND_TABLE(DT_BaseAnimatingOverlay);
 
 inline int CBaseAnimatingOverlay::GetNumAnimOverlays() const
 {
-	return m_AnimOverlay.Count();
+	return 0;
 }
 
 // ------------------------------------------------------------------------------------------ //

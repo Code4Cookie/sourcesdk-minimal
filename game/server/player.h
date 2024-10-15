@@ -823,10 +823,11 @@ private:
 public:
 	
 	// How long since this player last interacted with something the game considers an objective/target/goal
-	float				GetTimeSinceLastObjective( void ) const { return ( m_flLastObjectiveTime == -1.f ) ? 999.f : gpGlobals->curtime - m_flLastObjectiveTime; }
-	void				SetLastObjectiveTime( float flTime ) { m_flLastObjectiveTime = flTime; }
+	//float				GetTimeSinceLastObjective( void ) const { return ( m_flLastObjectiveTime == -1.f ) ? 999.f : gpGlobals->curtime - m_flLastObjectiveTime; }
+	//void				SetLastObjectiveTime( float flTime ) { m_flLastObjectiveTime = flTime; }
 
 	// Used by gamemovement to check if the entity is stuck.
+	char pad_200C[4];
 	int m_StuckLast;
 	
 	// FIXME: Make these protected or private!
@@ -873,6 +874,7 @@ public:
 	int						m_afButtonForced;	// These are forced onto the player's inputs
 
 	CNetworkVar( bool, m_fOnTarget );		//Is the crosshair on a target?
+	char gap2260[5];
 
 	char					m_szAnimExtension[32];
 
@@ -900,7 +902,7 @@ public:
 private:
 
 	Activity				m_Activity;
-	float					m_flLastObjectiveTime;				// Last curtime player touched/killed something the gamemode considers an objective
+	//float					m_flLastObjectiveTime;				// Last curtime player touched/killed something the gamemode considers an objective
 
 protected:
 
@@ -929,7 +931,6 @@ protected:
 	
 	// Vehicles
 	CNetworkHandle( CBaseEntity, m_hVehicle );
-
 	int						m_iVehicleAnalogBias;
 
 	void					UpdateButtonState( int nUserCmdButtonMask );
@@ -1060,6 +1061,7 @@ protected:
 
 	// Last received usercmd (in case we drop a lot of packets )
 	CUserCmd				m_LastCmd;
+	char					gap2528[256];
 	CUserCmd				*m_pCurrentCommand;
 	int						m_iLockViewanglesTickNumber;
 	QAngle					m_qangLockViewangles;
@@ -1089,10 +1091,10 @@ private:
 	int						m_nDrownDmgRate;		// Drowning damage in points per second without air.
 
 	int						m_nNumCrouches;			// Number of times we've crouched (for hinting)
-	bool					m_bDuckToggled;		// If true, the player is crouching via a toggle
+	//bool					m_bDuckToggled;		// If true, the player is crouching via a toggle
 
 public:
-	bool					GetToggledDuckState( void ) { return m_bDuckToggled; }
+	//bool					GetToggledDuckState( void ) { return m_bDuckToggled; }
 	void					ToggleDuck( void );
 	float					GetStickDist( void );
 
@@ -1124,6 +1126,7 @@ private:
 	bool					m_bPlayerUnderwater;
 
 	EHANDLE					m_hViewEntity;
+	bool					m_bUseWeaponsInVehicle;
 
 	// Movement constraints
 	CNetworkHandle( CBaseEntity, m_hConstraintEntity );
